@@ -1,0 +1,9 @@
+{
+    "bpv_data": {
+        "root": "data/nuplan/dataset/nuplan-v1.1/sensor_blobs",
+        "annotation": "data/dataset/vlm_ann_train.jsonl",
+        "data_augment": false,
+        "repeat_time": 1,
+        "length": 10
+        }
+    }
