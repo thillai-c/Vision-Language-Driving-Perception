@@ -145,6 +145,7 @@ def evaluate_chat_model(args):
         collate_fn=partial(collate_fn, tokenizer=tokenizer),
     )
 
+    # Generate unique filename with timestamp
     time_prefix = time.strftime('%y%m%d%H%M%S', time.localtime())
     results_file = f'eval_{time_prefix}.json'
     results_file = os.path.join(args.out_dir, results_file)
