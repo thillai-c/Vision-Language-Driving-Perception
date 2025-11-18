@@ -33,16 +33,6 @@ prompts = [
     'Kindly process the image to identify and retrieve any textual content it contains.',
     'Please analyze the image and retrieve any textual information that is discernible.',
     'Could you transcribe any visible text from the image, please?',
-    '请从图像中提取文本',
-    '请识别图像中的文本。',
-    '能否使用光学字符识别（OCR）技术在图像上提取文本？',
-    '请使用文本识别技术解读图像中的文字。',
-    '能提取图像中的任何可读文本吗？',
-    '请将图像中的文本识别并转换为机器可读格式。',
-    '请使用OCR技术识别并提取图像中的文本。',
-    '请处理图像以识别并提取其中包含的任何文本内容。',
-    '请分析图像并提取其中可以辨认的任何文本信息。',
-    '你能够将图像中可见的文本转录出来吗？',
 ]
 
 cnt = 0
@@ -52,7 +42,7 @@ data = []
 def process(filename):
     df_parquet = pd.read_parquet(os.path.join(args.input, filename))
     for index, row in tqdm(df_parquet.iterrows()):
-        # 在这里对每一行的数据进行处理
+        # Process each row of data
         image = row['image']['bytes']
         ground_truth = row['ground_truth']
         ground_truth = json.loads(ground_truth)['gt_parse']['text_sequence']

@@ -1194,9 +1194,9 @@ class InternLM2ForCausalLM(InternLM2PreTrainedModel):
         do_sample: bool = True,
         temperature: float = 0.8,
         top_p: float = 0.8,
-        meta_instruction: str = 'You are an AI assistant whose name is InternLM (书生·浦语).\n'
-                                '- InternLM (书生·浦语) is a conversational language model that is developed by Shanghai AI Laboratory (上海人工智能实验室). It is designed to be helpful, honest, and harmless.\n'
-                                '- InternLM (书生·浦语) can understand and communicate fluently in the language chosen by the user such as English and 中文.',
+        meta_instruction: str = 'You are an AI assistant whose name is InternLM.\n'
+                                '- InternLM is a conversational language model that is developed by Shanghai AI Laboratory. It is designed to be helpful, honest, and harmless.\n'
+                                '- InternLM can understand and communicate fluently in the language chosen by the user such as English and Chinese.',
         **kwargs,
     ):
         inputs = self.build_inputs(tokenizer, query, history, meta_instruction)
@@ -1234,8 +1234,8 @@ class InternLM2ForCausalLM(InternLM2PreTrainedModel):
         """
         Return a generator in format: (response, history)
         Eg.
-        ('你好，有什么可以帮助您的吗', [('你好', '你好，有什么可以帮助您的吗')])
-        ('你好，有什么可以帮助您的吗？', [('你好', '你好，有什么可以帮助您的吗？')])
+        ('Hello, how can I help you?', [('Hello', 'Hello, how can I help you?')])
+        ('Hello, how can I help you?', [('Hello', 'Hello, how can I help you?')])
         """
         if BaseStreamer is None:
             raise ModuleNotFoundError(

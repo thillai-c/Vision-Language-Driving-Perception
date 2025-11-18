@@ -641,12 +641,12 @@ def preprocess_internlm(
     targets = input_ids.clone()
 
     for conversation, target in zip(conversations, targets):
-        total_len = int(target.ne(tokenizer.pad_token_id).sum())  # 浦语里面 pad_token_id = eos_token_id
+        total_len = int(target.ne(tokenizer.pad_token_id).sum())  # In InternLM, pad_token_id = eos_token_id
         cur_len = 1
         target[:cur_len] = IGNORE_TOKEN_ID  # <s>
         parts = conversation.split(conv.roles[1])  # [UNUSED_TOKEN_146]assistant\n
         info = parts[0] + conv.roles[1]
-        temp_len = len(tokenizer(info).input_ids) - 1  # 去除tokenizer的<s>
+        temp_len = len(tokenizer(info).input_ids) - 1  # Remove tokenizer's <s>
         target[cur_len: cur_len + temp_len] = IGNORE_TOKEN_ID
         cur_len = cur_len + temp_len
 

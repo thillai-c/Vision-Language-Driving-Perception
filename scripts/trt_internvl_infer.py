@@ -275,7 +275,7 @@ class InternInfer(object):
             pad_token_id,
         ) = self.get_model()
         
-        # 初始化decoder
+        # Initialize decoder
         with open(serialize_path, "rb") as f:
             engine_buffer = f.read()
         self.decoder = tensorrt_llm.runtime.GenerationSession(
@@ -284,7 +284,7 @@ class InternInfer(object):
             runtime_mapping,
         )
         
-        # 初始化其他属性
+        # Initialize other attributes
         self.tokenizer = tokenizer
         self.sampling_config = sampling_config
         self.model_config = model_config
@@ -294,7 +294,7 @@ class InternInfer(object):
             trust_remote_code=True,
         )
 
-        # 初始化ViT session
+        # Initialize ViT session
         logger.info(f"Loading ViT engine from {self.vit_engine_path}")
         with open(self.vit_engine_path, "rb") as f:
             vit_engine_buffer = f.read()
@@ -489,12 +489,12 @@ class InternInfer(object):
 
     def process_image(self, pixel_values, stream):
         """
-        使用ViT处理图像
+        Process image using ViT.
         Args:
-            pixel_values: 预处理后的图像张量 [B, C, H, W]
-            stream: CUDA流
+            pixel_values: Preprocessed image tensor [B, C, H, W]
+            stream: CUDA stream
         Returns:
-            image_embeds: ViT输出的图像嵌入
+            image_embeds: Image embeddings output from ViT
         """
         visual_inputs = {"input": pixel_values.bfloat16()}
         visual_output_info = self.vit_session.infer_shapes(
@@ -582,7 +582,7 @@ def main():
         annotation=args.data_file,
         input_size=args.input_size,
         dynamic_image_size=args.dynamic,
-        use_thumbnail=False,  # 可以根据需要设置为参数
+        use_thumbnail=False,  # Can be set as a parameter if needed
         max_num=args.max_num
     )
 
