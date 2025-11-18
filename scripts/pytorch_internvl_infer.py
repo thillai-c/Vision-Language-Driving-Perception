@@ -272,16 +272,16 @@ if __name__ == '__main__':
     image_size = model.config.force_image_size or model.config.vision_config.image_size
     use_thumbnail = model.config.use_thumbnail
 
-    total_params = sum(p.numel() for p in model.parameters()) / 1e9
+        total_params = sum(p.numel() for p in model.parameters()) / 1e9
     if total_params > 20 or args.dynamic:
         args.num_beams = 1
-        print(f'[test] total_params: {total_params}B, use num_beams: {args.num_beams}')
+        logger.info(f'[test] total_params: {total_params}B, use num_beams: {args.num_beams}')
     else:
-        print(f'[test] total_params: {total_params}B')
-    print(f'[test] image_size: {image_size}')
-    print(f'[test] template: {model.config.template}')
-    print(f'[test] dynamic_image_size: {args.dynamic}')
-    print(f'[test] use_thumbnail: {use_thumbnail}')
-    print(f'[test] max_num: {args.max_num}')
+        logger.info(f'[test] total_params: {total_params}B')
+    logger.info(f'[test] image_size: {image_size}')
+    logger.info(f'[test] template: {model.config.template}')
+    logger.info(f'[test] dynamic_image_size: {args.dynamic}')
+    logger.info(f'[test] use_thumbnail: {use_thumbnail}')
+    logger.info(f'[test] max_num: {args.max_num}')
 
     evaluate_chat_model(args)
