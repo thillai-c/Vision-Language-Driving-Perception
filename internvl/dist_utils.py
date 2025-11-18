@@ -8,6 +8,7 @@ import torch
 import torch.multiprocessing as mp
 from torch import distributed as dist
 
+# Default timeout for distributed operations
 timeout = timedelta(minutes=60)
 
 
