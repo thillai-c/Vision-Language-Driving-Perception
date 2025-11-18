@@ -250,10 +250,12 @@ if __name__ == '__main__':
     parser.add_argument('--mode', type=str, default="fast")
     args = parser.parse_args()
 
-    assert args.checkpoint is not None and args.data_file is not None
+    assert args.checkpoint is not None and args.data_file is not None, \
+        "Both checkpoint and data_file must be provided"
     
     if not os.path.exists(args.out_dir):
         os.makedirs(args.out_dir)
+        logger.info(f"Created output directory: {args.out_dir}")
 
     assert args.batch_size == 1, 'Only batch size 1 is supported'
 
