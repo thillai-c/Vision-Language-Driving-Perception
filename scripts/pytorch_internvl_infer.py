@@ -80,6 +80,15 @@ class CaptionDataset(torch.utils.data.Dataset):
 
 
 def collate_fn(inputs, tokenizer):
+    """Collate function for batching dataset items.
+    
+    Args:
+        inputs: List of dataset items.
+        tokenizer: Tokenizer for processing text.
+        
+    Returns:
+        Tuple of batched tensors and metadata.
+    """
     pixel_values = torch.cat([_['pixel_values'] for _ in inputs], dim=0)
     image_ids = [_['image_id'] for _ in inputs]
     input_texts = [_['input_text'] for _ in inputs]
