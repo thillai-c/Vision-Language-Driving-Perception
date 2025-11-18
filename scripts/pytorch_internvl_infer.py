@@ -39,7 +39,11 @@ class CaptionDataset(torch.utils.data.Dataset):
         print("------------------------------", image_path, "------------------------------")
         print(data_item['conversations'][1]["value"])
         print()
-        image = Image.open(image_path)
+        try:
+            image = Image.open(image_path)
+        except Exception as e:
+            raise FileNotFoundError(f"Failed to load image from {image_path}: {e}")
+        
         if self.dynamic_image_size:
             images = dynamic_preprocess(image, image_size=self.input_size,
                                         use_thumbnail=self.use_thumbnail,
