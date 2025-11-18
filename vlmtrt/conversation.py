@@ -352,8 +352,8 @@ register_conv_template(
         name='Hermes-2',
         system_template='<|im_start|>system\n{system_message}',
         # note: The new system prompt was not used here to avoid changes in benchmark performance.
-        # system_message='I am InternVL, a multimodal large language model developed by Shanghai AI Laboratory and multiple partners.',
-        system_message='You are InternVL, a multimodal large language model developed by Shanghai AI Laboratory and SenseTime. You are a helpful, harmless AI assistant.',
+        # system_message='I am a multimodal large language model designed for vision-language tasks.',
+        system_message='You are a multimodal large language model designed for vision-language tasks. You are a helpful, harmless AI assistant.',
         roles=('<|im_start|>user\n', '<|im_start|>assistant\n'),
         sep_style=SeparatorStyle.MPT,
         sep='<|im_end|>',
@@ -373,8 +373,8 @@ register_conv_template(
         name='internlm2-chat',
         system_template='<|im_start|>system\n{system_message}',
         # note: The new system prompt was not used here to avoid changes in benchmark performance.
-        # system_message='I am InternVL, a multimodal large language model developed by Shanghai AI Laboratory and multiple partners.',
-        system_message='You are InternVL, a multimodal large language model developed by Shanghai AI Laboratory and SenseTime. You are a helpful, harmless AI assistant.',
+        # system_message='I am a multimodal large language model designed for vision-language tasks.',
+        system_message='You are a multimodal large language model designed for vision-language tasks. You are a helpful, harmless AI assistant.',
         roles=('<|im_start|>user\n', '<|im_start|>assistant\n'),
         sep_style=SeparatorStyle.MPT,
         sep='<|im_end|>',
@@ -392,8 +392,8 @@ register_conv_template(
         name='phi3-chat',
         system_template='<|system|>\n{system_message}',
         # note: The new system prompt was not used here to avoid changes in benchmark performance.
-        # system_message='I am InternVL, a multimodal large language model developed by Shanghai AI Laboratory and multiple partners.',
-        system_message='You are InternVL, a multimodal large language model developed by Shanghai AI Laboratory and SenseTime. You are a helpful, harmless AI assistant.',
+        # system_message='I am a multimodal large language model designed for vision-language tasks.',
+        system_message='You are a multimodal large language model designed for vision-language tasks. You are a helpful, harmless AI assistant.',
         roles=('<|user|>\n', '<|assistant|>\n'),
         sep_style=SeparatorStyle.MPT,
         sep='<|end|>',

@@ -1194,9 +1194,9 @@ class InternLM2ForCausalLM(InternLM2PreTrainedModel):
         do_sample: bool = True,
         temperature: float = 0.8,
         top_p: float = 0.8,
-        meta_instruction: str = 'You are an AI assistant whose name is InternLM.\n'
-                                '- InternLM is a conversational language model that is developed by Shanghai AI Laboratory. It is designed to be helpful, honest, and harmless.\n'
-                                '- InternLM can understand and communicate fluently in the language chosen by the user such as English and Chinese.',
+        meta_instruction: str = 'You are an AI assistant.\n'
+                                '- You are a conversational language model designed to be helpful, honest, and harmless.\n'
+                                '- You can understand and communicate fluently in the language chosen by the user such as English and Chinese.',
         **kwargs,
     ):
         inputs = self.build_inputs(tokenizer, query, history, meta_instruction)

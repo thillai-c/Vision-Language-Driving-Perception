@@ -1,34 +1,34 @@
-# InternVL2-1B Finetune docs
+# VLM Finetune Documentation
 
-## Finetune（commmand/InternVL2-1B.sh）
+## Finetune (command/InternVL2-1B.sh)
 
-### Download InternVL2-1B
+### Download Pre-trained Model
 
-Create a directory `ckpts/InternVL2-1B` under `Vision Language Driving Perception`
+Create a directory `ckpts/VLM-Model` under `Vision Language Driving Perception`
 ```bash
-mkdir ckpts/InternVL2-1B
-cd ckpts/InternVL2-1B
+mkdir ckpts/VLM-Model
+cd ckpts/VLM-Model
 ```
 
-Install `huggingface_hub` to download `InternVL2-1B` pre-trained model
+Install `huggingface_hub` to download the pre-trained model
 ```bash
 pip install -U huggingface_hub==0.25.0
 export HF_ENDPOINT=https://hf-mirror.com
 ```
 
-Log in and download the `InternVL2-1B` pre-trained model
+Log in and download the pre-trained model
 ```bash
 # login
 huggingface-cli login
 # Download
-huggingface-cli download --resume-download OpenGVLab/InternVL2-1B --local-dir ./
+huggingface-cli download --resume-download <model-repo> --local-dir ./
 ```
 
 ### Setting parameters
 
-In command/InternVL2-1B, specify the path of the pre-trained model of `InternVL2-1B`, the path to save the model after fine-tuning, and the path to configure the fine-tuning data.
+In command/InternVL2-1B.sh, specify the path of the pre-trained model, the path to save the model after fine-tuning, and the path to configure the fine-tuning data.
 ```bash
---model_name_or_path "ckpts/InternVL2-1B"
+--model_name_or_path "ckpts/VLM-Model"
 OUTPUT_DIR='data/bpv_finetune'
 --meta_path "data/meta_config.json"
 ```

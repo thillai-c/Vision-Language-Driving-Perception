@@ -203,7 +203,7 @@ setup(
     ],
     url='https://github.com/thillai-c/Vision-Language-Driving-Perception',
     author='Vision Language Driving Perception Contributors',
-    author_email='openmmlab@gmail.com',
+    author_email='',
     install_requires=parse_requirements(),
     ext_modules=get_extensions() + [
         make_cuda_ext(

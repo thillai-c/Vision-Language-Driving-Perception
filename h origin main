@@ -1,0 +1,32 @@
+[33mbbf22f9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m feat: add file existence check before loading images
+[33m53f008a[m docs: add docstring to init_dist function
+[33ma280dc3[m feat: add validation for dataset item fields
+[33m9daa502[m refactor:  comment update
+[33mc3cec2b[m docs: add comment explaining timestamp-based filename generation
+[33m1ce526a[m docs: add docstring to _is_free_port function
+[33mc2efc5a[m fix: add zero-division checks in metrics calculation
+[33m1f70285[m docs: add docstring to collate_fn function
+[33m28a1062[m feat: add docstring and validation to InferenceSampler
+[33m26e5477[m docs: add comment explaining num_beams adjustment logic
+[33m4b00a65[m feat: add docstring and UTF-8 encoding to evaluation dataset
+[33m384f72c[m feat: add class docstring and specify UTF-8 encoding for file reading
+[33m2c33a93[m docs: translate Chinese comment to English
+[33mceae8c7[m refactor: use logger.debug for input_text instead of print
+[33m0a86edd[m docs: add comment for timeout constant
+[33m4cb021e[m improve: show correct/total count in accuracy output
+[33m0a328d6[m docs: add module docstring and organize constants with comments
+[33md72cf66[m fix: handle empty captions list in average length calculation
+[33m238a36a[m refactor: replace print statements with logger in inference script
+[33m4196ece[m bump: version to 0.0.2
+[33mc2b4976[m chore: add project-specific files to .gitignore
+[33m8cb7b1a[m feat: improve error handling in get_conv_template with better error message
+[33md8f9a69[m improve: better error messages and logging for argument validation
+[33m2436719[m feat: add null check and docstring to extract_content_between_dollars
+[33m0e2a426[m docs: add docstring to mapping_action function
+[33m698b6ea[m feat: add logging support for better debugging
+[33m5f26927[m feat: add CUDA device validation in distributed init
+[33m50feb0d[m refactor: make debug prints conditional via DEBUG env var
+[33md117905[m feat: add error handling for image loading in dataset
+[33m3a3781d[m fix: remove duplicate times_used.append in evaluation loop
+[33m98dddb7[m docs: add docstring to _find_free_port function
+[33medbcd8a[m fix: remove duplicate trimesh dependency

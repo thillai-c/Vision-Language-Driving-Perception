@@ -8,7 +8,7 @@
 
 Vision Language Driving Perception is an open-source project focused on fine-tuning Vision-Language Models (VLMs) for decision planning in autonomous driving scenarios. By leveraging the expressive power of pre-trained VLMs, this project adapts them to downstream driving tasks such as behavior prediction, maneuver classification, and goal-directed planning.
 
-This repository provides tools, datasets, and training pipelines to adapt InterVL2-1B for real-world autonomous driving decision modules.
+This repository provides tools, datasets, and training pipelines to adapt Vision-Language Models for real-world autonomous driving decision modules.
 
 ---
 
@@ -113,12 +113,4 @@ Please follow [docs/vlm_trt.md](docs/vlm_trt.md) to convert and quantize VLMs.
 
 ## Acknowledgments
 
-This project builds upon the work of:
-
-- [InterVL](https://github.com/OpenGVLab/InternVL)
-- [nuPlan](https://github.com/motional/nuplan-devkit)
-- [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
-- [BLIP](https://github.com/salesforce/BLIP)
-- [LLaVA](https://github.com/haotian-liu/LLaVA)
-
-And the broader open-source autonomous driving and VLM communities.
+This project utilizes open-source tools and frameworks from the broader autonomous driving and vision-language model communities.

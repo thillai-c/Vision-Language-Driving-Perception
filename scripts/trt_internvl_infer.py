@@ -330,7 +330,7 @@ class InternInfer(object):
             self,
             query: str,
             # system: str = "You are a helpful assistant.",
-            system: str = "You are InternVL, a multimodal large language model developed jointly by Shanghai AI Laboratory and SenseTime. You are a helpful and harmless AI assistant.",
+            system: str = "You are a multimodal large language model designed for vision-language tasks. You are a helpful and harmless AI assistant.",
             max_window_size: int = 6144,
         ):
             im_start, im_end = "<|im_start|>", "<|im_end|>"
