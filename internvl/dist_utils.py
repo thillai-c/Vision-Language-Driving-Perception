@@ -12,6 +12,14 @@ timeout = timedelta(minutes=60)
 
 
 def _find_free_port():
+    """Find an available port for distributed training.
+    
+    Returns:
+        int: An available port number.
+        
+    Note:
+        There is still a chance the port could be taken by other processes.
+    """
     # Copied from https://github.com/facebookresearch/detectron2/blob/main/detectron2/engine/launch.py # noqa: E501
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Binding to port 0 will cause the OS to find an available port for us
