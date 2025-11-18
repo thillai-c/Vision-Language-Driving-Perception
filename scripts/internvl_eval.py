@@ -377,9 +377,9 @@ def evaluate_chat_model(args):
                 'prediction': caption
             })
 
-        avg_time = mean(times_used)
-        fps = 1.0 / avg_time
-        accuracy = correct_count / total_count
+        avg_time = mean(times_used) if times_used else 0.0
+        fps = 1.0 / avg_time if avg_time > 0 else 0.0
+        accuracy = correct_count / total_count if total_count > 0 else 0.0
         
         metrics = {
             'metrics': {
