@@ -51,9 +51,17 @@ def init_dist(launcher, backend='nccl', **kwargs):
 
 
 def _init_dist_pytorch(backend, **kwargs):
+    """Initialize PyTorch distributed training.
+    
+    Args:
+        backend: Backend for distributed training (e.g., 'nccl').
+        **kwargs: Additional arguments for distributed initialization.
+    """
     # TODO: use local_rank instead of rank % num_gpus
     rank = int(os.environ['RANK'])
     num_gpus = torch.cuda.device_count()
+    if num_gpus == 0:
+        raise RuntimeError("No CUDA devices available for distributed training")
     torch.cuda.set_device(rank % num_gpus)
     # dist.init_process_group(backend=backend, **kwargs)
     deepspeed.init_distributed(dist_backend=backend)
