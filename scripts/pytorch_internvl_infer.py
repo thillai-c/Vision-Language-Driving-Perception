@@ -285,6 +285,7 @@ if __name__ == '__main__':
     use_thumbnail = model.config.use_thumbnail
 
         total_params = sum(p.numel() for p in model.parameters()) / 1e9
+    # Adjust num_beams for large models to reduce memory usage
     if total_params > 20 or args.dynamic:
         args.num_beams = 1
         logger.info(f'[test] total_params: {total_params}B, use num_beams: {args.num_beams}')
