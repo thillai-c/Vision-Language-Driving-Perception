@@ -124,10 +124,21 @@ action_category_mapping = {
 
 
 class CaptionDataset(torch.utils.data.Dataset):
+    """Dataset for loading driving scene images and captions for evaluation."""
 
     def __init__(self, root, annotation, input_size=224, dynamic_image_size=False,
                  use_thumbnail=False, max_num=6):
-        with open(annotation, 'r') as f:
+        """Initialize the evaluation dataset.
+        
+        Args:
+            root: Root directory containing images.
+            annotation: Path to JSONL annotation file.
+            input_size: Target image size for preprocessing.
+            dynamic_image_size: Whether to use dynamic image sizing.
+            use_thumbnail: Whether to use thumbnail preprocessing.
+            max_num: Maximum number of image patches.
+        """
+        with open(annotation, 'r', encoding='utf-8') as f:
             self.data = [json.loads(line) for line in f.readlines()]
         
         self.root = root
