@@ -176,7 +176,7 @@ def get_extensions():
 
 setup(
     name='vision-language-driving-perception',
-    version='0.0.1',
+    version='0.0.2',
     description='Vision Language Driving Perception - Fine-tuning Vision-Language Models for Autonomous Driving Decision Planning',
     keywords='computer vision, autonomous driving, vision-language models, AI, machine learning',
     entry_points={
