@@ -382,7 +382,7 @@ def evaluate_chat_model(args):
         print(f"Average inference time per frame: {avg_time:.4f} seconds")
         print(f"FPS: {fps:.2f}")
         print(f"Total frames processed: {total_frames}")
-        print(f"Accuracy: {accuracy:.2f}")
+        print(f"Accuracy: {accuracy:.4f} ({correct_count}/{total_count})")
     torch.distributed.barrier()
 
 
