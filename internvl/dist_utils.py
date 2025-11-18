@@ -47,6 +47,16 @@ def _is_free_port(port):
 
 
 def init_dist(launcher, backend='nccl', **kwargs):
+    """Initialize distributed training environment.
+    
+    Args:
+        launcher: Launcher type ('pytorch', 'mpi', or 'slurm').
+        backend: Backend for distributed training (default: 'nccl').
+        **kwargs: Additional arguments for distributed initialization.
+        
+    Raises:
+        ValueError: If launcher type is invalid.
+    """
     if mp.get_start_method(allow_none=True) is None:
         mp.set_start_method('spawn')
     if launcher == 'pytorch':
