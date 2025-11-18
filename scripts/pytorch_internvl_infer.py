@@ -142,7 +142,8 @@ def evaluate_chat_model(args):
     
     for _, (pixel_values, ids, input_text, _, gts) in tqdm(enumerate(dataloader)):
         pixel_values = pixel_values.to(torch.bfloat16).cuda()
-        print('input_text:', input_text)
+        if os.getenv('DEBUG', '0') == '1':
+            logger.debug(f'input_text: {input_text}')
         generation_config = dict(
             num_beams=args.num_beams,
             do_sample=True if args.temperature > 0 else False,
