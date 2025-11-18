@@ -35,7 +35,6 @@ pytest-cov
 pytest-runner
 yapf
 flake8
-trimesh
 similaritymeasures
 laspy
 lazrs
