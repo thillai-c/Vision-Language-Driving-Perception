@@ -203,6 +203,16 @@ class InferenceSampler(torch.utils.data.sampler.Sampler):
         return len(self._local_indices)
 
 def extract_content_between_dollars(text):
+    """Extract content between $$ markers from text.
+    
+    Args:
+        text: Input text containing $$ markers.
+        
+    Returns:
+        str or None: Extracted content or None if no match found.
+    """
+    if not text:
+        return None
     # Use regular expression to match the first $$$$
     pattern = r'\$\$(.*?)\$\$'
     match = re.search(pattern, text)
