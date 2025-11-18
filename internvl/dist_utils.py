@@ -32,6 +32,14 @@ def _find_free_port():
 
 
 def _is_free_port(port):
+    """Check if a port is available.
+    
+    Args:
+        port: Port number to check.
+        
+    Returns:
+        bool: True if port is free, False otherwise.
+    """
     ips = socket.gethostbyname_ex(socket.gethostname())[-1]
     ips.append('localhost')
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
