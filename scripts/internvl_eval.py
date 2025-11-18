@@ -343,8 +343,11 @@ def evaluate_chat_model(args):
 
     merged_ids = [_ for _ in itertools.chain.from_iterable(merged_ids)]
     merged_captions = [_ for _ in itertools.chain.from_iterable(merged_captions)]
-    average_length = sum(len(x.split()) for x in merged_captions) / len(merged_captions)
-    print(f'Average caption length: {average_length}')
+    if len(merged_captions) > 0:
+        average_length = sum(len(x.split()) for x in merged_captions) / len(merged_captions)
+        print(f'Average caption length: {average_length}')
+    else:
+        print('Warning: No captions to compute average length')
 
     if torch.distributed.get_rank() == 0:
         results = []
