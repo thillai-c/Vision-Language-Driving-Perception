@@ -312,7 +312,7 @@ def evaluate_chat_model(args):
         image_ids.extend(ids)
         captions.extend([pred])
         gt_actions.extend(gts)
-        times_used.append(inference_time)
+        # Note: times_used already appended above, no need to append again
         total_frames += pixel_values.size(0)
 
     torch.distributed.barrier()
