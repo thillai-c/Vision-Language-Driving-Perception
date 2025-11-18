@@ -211,6 +211,14 @@ def extract_content_between_dollars(text):
     return None
 
 def mapping_action(result):
+    """Map action to meta action category.
+    
+    Args:
+        result: The action string to map.
+        
+    Returns:
+        str: Mapped meta action.
+    """
     if result not in meta_actions:
         if result in action_category_mapping.keys():
             result = action_category_mapping[result]
