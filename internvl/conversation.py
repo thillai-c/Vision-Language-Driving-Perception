@@ -326,7 +326,19 @@ def register_conv_template(template: Conversation, override: bool = False):
 
 
 def get_conv_template(name: str) -> Conversation:
-    """Get a conversation template."""
+    """Get a conversation template.
+    
+    Args:
+        name: Name of the conversation template.
+        
+    Returns:
+        Conversation: A copy of the requested conversation template.
+        
+    Raises:
+        KeyError: If the template name is not found.
+    """
+    if name not in conv_templates:
+        raise KeyError(f"Conversation template '{name}' not found. Available templates: {list(conv_templates.keys())}")
     return conv_templates[name].copy()
 
 
