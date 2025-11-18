@@ -189,10 +189,16 @@ def collate_fn(inputs, tokenizer):
 
 
 class InferenceSampler(torch.utils.data.sampler.Sampler):
+    """Distributed sampler for inference that splits data across ranks."""
 
     def __init__(self, size):
+        """Initialize the inference sampler.
+        
+        Args:
+            size: Total size of the dataset.
+        """
         self._size = int(size)
-        assert size > 0
+        assert size > 0, "Dataset size must be positive"
         self._rank = torch.distributed.get_rank()
         self._world_size = torch.distributed.get_world_size()
         self._local_indices = self._get_local_indices(size, self._world_size, self._rank)
