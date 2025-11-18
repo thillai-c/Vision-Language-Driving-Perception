@@ -48,6 +48,12 @@ class CaptionDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         data_item = self.data[idx]
+        # Validate required fields
+        if 'conversations' not in data_item or len(data_item['conversations']) < 2:
+            raise ValueError(f"Invalid data item at index {idx}: missing conversations")
+        if 'image' not in data_item:
+            raise ValueError(f"Invalid data item at index {idx}: missing image path")
+        
         prompt = "<image> \n" + data_item['conversations'][0]["value"]
         image_id = data_item['id']
         image_path = os.path.join(self.root, data_item['image'])
