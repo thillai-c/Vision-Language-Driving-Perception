@@ -12,6 +12,11 @@ from internvl.train.dataset import build_transform, dynamic_preprocess
 from PIL import Image
 from tqdm import tqdm
 from statistics import mean
+import logging
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class CaptionDataset(torch.utils.data.Dataset):
 
