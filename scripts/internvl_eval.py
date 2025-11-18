@@ -273,7 +273,7 @@ def evaluate_chat_model(args):
     results_file = os.path.join(args.out_dir, results_file)
     
     if torch.distributed.get_rank() == 0:
-        # 创建文件并写入开始的方括号
+        # Create file and write opening bracket for JSON array
         with open(results_file, 'w') as f:
             f.write('[\n')
     
