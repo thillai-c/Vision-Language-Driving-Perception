@@ -57,6 +57,11 @@ class CaptionDataset(torch.utils.data.Dataset):
         prompt = "<image> \n" + data_item['conversations'][0]["value"]
         image_id = data_item['id']
         image_path = os.path.join(self.root, data_item['image'])
+        
+        # Check if image file exists before attempting to load
+        if not os.path.exists(image_path):
+            raise FileNotFoundError(f"Image file not found: {image_path}")
+        
         # Debug output (can be disabled in production)
         if os.getenv('DEBUG', '0') == '1':
             print()
