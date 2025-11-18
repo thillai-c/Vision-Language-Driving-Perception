@@ -35,10 +35,12 @@ class CaptionDataset(torch.utils.data.Dataset):
         prompt = "<image> \n" + data_item['conversations'][0]["value"]
         image_id = data_item['id']
         image_path = os.path.join(self.root, data_item['image'])
-        print()
-        print("------------------------------", image_path, "------------------------------")
-        print(data_item['conversations'][1]["value"])
-        print()
+        # Debug output (can be disabled in production)
+        if os.getenv('DEBUG', '0') == '1':
+            print()
+            print("------------------------------", image_path, "------------------------------")
+            print(data_item['conversations'][1]["value"])
+            print()
         try:
             image = Image.open(image_path)
         except Exception as e:
