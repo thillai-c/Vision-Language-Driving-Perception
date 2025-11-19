@@ -378,7 +378,9 @@ def evaluate_chat_model(args):
     if torch.distributed.get_rank() == 0:
         results = []
         
-        for i, (image_id, caption, gt) in enumerate(zip(merged_ids, merged_captions, gt_actions)):
+        # Ensure we don't exceed dataset bounds when indexing
+        max_idx = min(len(merged_ids), len(dataset.data))
+        for i, (image_id, caption, gt) in enumerate(zip(merged_ids[:max_idx], merged_captions[:max_idx], gt_actions[:max_idx])):
             results.append({
                 'image_id': int(image_id),
                 'image_path': dataset.data[i]['image'],
