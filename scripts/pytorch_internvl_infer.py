@@ -44,6 +44,7 @@ class CaptionDataset(torch.utils.data.Dataset):
         self.transform = build_transform(is_train=False, input_size=input_size)
 
     def __len__(self):
+        """Return the size of the dataset."""
         return len(self.data)
 
     def __getitem__(self, idx):
@@ -88,6 +89,10 @@ class CaptionDataset(torch.utils.data.Dataset):
             'pixel_values': pixel_values,
             'gt': data_item['conversations'][1]["value"]
         }
+    
+    def __len__(self):
+        """Return the size of the dataset."""
+        return len(self.data)
 
 
 def collate_fn(inputs, tokenizer):
